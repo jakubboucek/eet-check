@@ -1,0 +1,22 @@
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /
+  script: home.php
+
+- url: /check
+  script: check.php
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg|html))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg|html)$
+  application_readable: true
+
+- url: /static/(.+)$
+  static_files: \1
+  upload: static/.+$
+
+skip_files:
+- ^(.*/)?.*/.git/.*$
