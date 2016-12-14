@@ -105,7 +105,9 @@ use \Eet\Extension;
 			}
 
 			function afterInstalationProcess() {
-				document.location.reload();
+				window.setTimeout( function(){
+					document.location.reload();
+				}, 1000);
 			}
 		</script>
 	</head>
