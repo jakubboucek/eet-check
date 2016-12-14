@@ -15,7 +15,7 @@ handlers:
   application_readable: true
 
 - url: /static/(.+)$
-  static_files: \1
+  static_files: static/\1
   upload: static/.+$
 
 skip_files:
