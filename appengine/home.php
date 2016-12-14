@@ -4,6 +4,18 @@ require_once(__DIR__.'/class/Extension.php');
 
 use \Eet\Extension;
 
+define(CHECK_ENDPOINT, '/check');
+
+if(!isset($_GET["requestState"])) {
+	$stateRequest = FALSE;
+}
+$stateRequest = json_decode($_GET["requestState"]);
+
+$checkUrl = FALSE;
+if($stateRequest) {
+	$checkUrl = CHECK_ENDPOINT . "?" . http_build_query($stateRequest);
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -119,7 +131,11 @@ use \Eet\Extension;
 			<h1>EET Check</h1>
 			<div class="row">
 				<?php if(Extension::isInstalled()): ?>
-				<p class="text-center">Aplikace je správně nainstalována
+				<p class="text-center">Aplikace je správně nainstalována</p>
+				<?php if($checkUrl) : ?>
+					<div class="col text-center"><a href="<?php echo htmlspecialchars($checkUrl);?>" class="btn btn-primary disableable"><i class="glyphicon glyphicon-circle-arrow-right"></i> Pokračovat na kontrolu údajů</a></div>
+				<?php endif ?>
+
 				<?php else: ?>
 				<p class="text-center">Pro spuštění aplikace je nezbytné do prohlížeče nainstalovat rozšíření EET Check
 				<div class="col text-center"><button id="run-installation" class="btn btn-primary disableable"><i class="glyphicon glyphicon-cog"></i> Nainstalovat EET Check</button></div>

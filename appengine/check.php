@@ -15,5 +15,9 @@ if(Extension::isInstalled()) {
 	header("Location:$url", TRUE, 302);
 }
 else {
-	header("Location:/", TRUE, 307);
+	$backParameters = $_REQUEST;
+	$query = http_build_query ( [
+		"requestState" => json_encode( $backParameters )
+	] );
+	header("Location:/?$query", TRUE, 307);
 }
