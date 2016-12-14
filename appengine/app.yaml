@@ -17,6 +17,3 @@ handlers:
 - url: /static/(.+)$
   static_files: static/\1
   upload: static/.+$
-
-skip_files:
-- ^(.*/)?.*/.git/.*$
