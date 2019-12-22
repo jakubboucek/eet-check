@@ -4,16 +4,20 @@ api_version: 1
 handlers:
 - url: /
   script: home.php
+  secure: always
 
 - url: /check
   script: check.php
+  secure: always
 
 # Serve images as static resources.
 - url: /(.+\.(gif|png|jpg|html))$
   static_files: \1
   upload: .+\.(gif|png|jpg|html)$
   application_readable: true
+  secure: always
 
 - url: /static/(.+)$
   static_files: static/\1
   upload: static/.+$
+  secure: always

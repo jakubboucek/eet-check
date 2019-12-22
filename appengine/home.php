@@ -152,7 +152,9 @@ if($stateRequest) {
 		<div class="footer">
 			Pokud aplikace nefunguje správně, kontaktujte mě prosím:
 			<a href="mailto:pan@jakubboucek.cz?subject=EET+Check+doesn't+work&amp;body=This+tool:+https://eet-check.appspot.com">
-					pan@jakubboucek.cz</a>
+					Jakub Bouček</a>
+			<br>
+			<a href="https://github.com/jakubboucek/eet-check">Více informací o aplikaci</a>
 		</div>
 	</body>
 </html>
